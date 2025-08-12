@@ -1,0 +1,28 @@
+
+
+.center-panel{
+    
+}
+
+.full-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.center-panel-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 70vh;
+  width: 100vw; /* ancho total de pantalla */
+}
+
+.editor-container {
+  width: 60vw;
+  border-right: 1px solid #ccc; /* opcional */
+}
+
+.right-panel-container {
+  width: 40vw;
+}

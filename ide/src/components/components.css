@@ -1,0 +1,16 @@
+.section-button {
+    color: white;
+    background-color: transparent;
+    border-width: 1rem;
+    border: solid white;
+    height: 3.5rem;
+    width: 10rem;
+    border-radius: 1rem;
+}
+
+.section-button:hover{
+    background-color: #e0e0e0;
+    color: black;
+    cursor: pointer;
+}
+

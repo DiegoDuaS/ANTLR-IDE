@@ -1,13 +1,10 @@
 .App {
   text-align: center;
   background-color: #282c34;
-  color: #282c34;
+  color: #ffffff;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -38,3 +35,4 @@
     transform: rotate(360deg);
   }
 }
+
