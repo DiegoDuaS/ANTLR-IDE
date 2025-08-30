@@ -16,7 +16,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
     <div>
       <div>
         {tabs.map((tab, i) => (
-          <button key={i} onClick={() => setActive(i)}>
+          <button className="section-button" key={i} onClick={() => setActive(i)}>
             {tab.label}
           </button>
         ))}

@@ -1,3 +1,32 @@
+header{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border: solid #e0e0e0;
+}
+
+.header-section-main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header-section-main h2 {
+    margin-left: 1rem;
+}
+
+.right{
+    padding-top: 1rem;
+}
+
+.names{
+    font-size: small;
+    margin: 0;
+}
+
 .section-button {
     color: white;
     background-color: transparent;
@@ -6,6 +35,9 @@
     height: 3.5rem;
     width: 10rem;
     border-radius: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-weight: bold;
 }
 
 .section-button:hover{
