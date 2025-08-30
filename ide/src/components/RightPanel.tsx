@@ -4,15 +4,23 @@ import SymbolTable from "./SymbolTable";
 import Tabs from "./Tabs";
 import "./components.css";
 import astImage from './ast_tree.png';
+import { Symbol } from "../helpers/types";
 
-const RightPanel: React.FC = () => {
+
+
+interface Props {
+  symbols: Symbol[];
+}
+
+const RightPanel: React.FC<Props> = ({ symbols }) => {
+  
 
   return (
     <div className="right">
       <Tabs
         tabs={[
           { label: "AST", content: <ASTView src={astImage} /> },
-          { label: "Tabla de símbolos", content: <SymbolTable /> },
+          { label: "Tabla de símbolos", content: <SymbolTable symbols={symbols} /> },
         ]}
       />
     </div>

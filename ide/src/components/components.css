@@ -69,3 +69,17 @@ header{
   }
 }
 
+.symbol-table {
+  height: 60vh;
+  overflow-y: auto;   /* scroll vertical */
+  overflow-x: auto;   /* scroll horizontal si se pasa */
+  padding: 0.5rem;
+}
+
+.table {
+  width: 100%;        /* la tabla ocupa todo el ancho */
+  border-collapse: collapse;
+  background-color: white;
+  color: black;
+}
+

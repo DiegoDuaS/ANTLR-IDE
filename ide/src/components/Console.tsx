@@ -1,11 +1,6 @@
 import React from "react";
 import "./components.css";
-
-type SemanticError = {
-  mensaje: string;
-  linea: number;
-  columna: number;
-};
+import { SemanticError } from "../helpers/types";
 
 interface ConsoleProps {
   errors: SemanticError[];

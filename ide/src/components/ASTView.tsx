@@ -1,9 +1,6 @@
 import React from "react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-
-interface ASTViewProps {
-  src: string; // URL de la imagen generada por el backend
-}
+import { ASTViewProps } from "../helpers/types";
 
 const ASTView: React.FC<ASTViewProps> = ({ src }) => {
   return (
