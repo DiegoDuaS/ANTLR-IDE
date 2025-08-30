@@ -1,26 +1,17 @@
-import React, { useState, useEffect} from "react";
-import ASTView from "./ASTView";
+import React, { useState } from "react";
+import ASTView from "./ASTView"; // el componente de imagen con zoom
 import SymbolTable from "./SymbolTable";
 import Tabs from "./Tabs";
 import "./components.css";
+import astImage from './ast_tree.png';
 
 const RightPanel: React.FC = () => {
-  const [astText, setAstText] = useState("");
-
-  useEffect(() => {
-    fetch("/ast.txt")
-      .then((res) => res.text())
-      .then((text) => setAstText(text))
-      .catch((err) => console.error("Error leyendo AST:", err));
-  }, []);
 
   return (
     <div className="right">
-      
-
       <Tabs
         tabs={[
-          { label: "AST", content: <ASTView astText={astText} /> },
+          { label: "AST", content: <ASTView src={astImage} /> },
           { label: "Tabla de símbolos", content: <SymbolTable /> },
         ]}
       />

@@ -46,3 +46,26 @@ header{
     cursor: pointer;
 }
 
+.console {
+  background-color: #000;
+  color: #0f0;
+  padding: 10px;
+  height: 200px;
+  overflow-y: auto;
+  font-family: monospace;
+  border-radius: 4px;
+  border: 1px solid #333;
+  text-align: left; /* Asegura que el texto esté a la izquierda */
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 2s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
