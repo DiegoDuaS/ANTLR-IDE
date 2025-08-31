@@ -14,7 +14,12 @@ const Home: React.FC = () => {
 
   return (
     <div className="full-page">
-      <TopBar />
+      <TopBar      
+        onCompile={() => { 
+          compile(code);
+        }}
+        loading={loading}
+      />
       <div className="center-panel-section">
         <div className="editor-container">
           <CodeEditor errors={errors} code={code} onChange={setCode} />

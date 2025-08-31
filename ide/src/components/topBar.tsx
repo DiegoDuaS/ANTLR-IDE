@@ -2,7 +2,12 @@ import React from "react";
 import { TbCircleLetterCFilled } from "react-icons/tb";
 import "./components.css"
 
-const TopBar: React.FC = () => {
+interface TopBarProps {
+  onCompile: () => void;
+  loading: boolean;
+}
+
+const TopBar: React.FC<TopBarProps> = ({ onCompile, loading }) => {
 
   return (
     <header>
@@ -11,7 +16,15 @@ const TopBar: React.FC = () => {
         <h2> IDE - Compiladores</h2>
       </div>
       <div className="header-section">
-        <button className="section-button">Compilar</button>
+        <button 
+          className="section-button" 
+          onClick={() => {
+            onCompile();
+          }}
+          disabled={loading}
+        >
+          {loading ? "Compilando..." : "Compilar"}
+        </button>
         <button className="section-button">Limpiar</button>
       </div>
       <div className="header-section">
@@ -25,3 +38,4 @@ const TopBar: React.FC = () => {
 };
 
 export default TopBar;
+

@@ -17,16 +17,21 @@ export function useCompiler() {
   const [connectionError, setConnectionError] = useState<string | null>(null);
 
   const compile = async (code: string) => {
+    console.log(code);
     setLoading(true);
     setConnectionError(null); // limpiamos errores de red
     try {
-      const response = await fetch("http://localhost:5000/compile", {
+      const response = await fetch("http://localhost:8080/compilar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code }),
+        body: JSON.stringify({ codigo: code }), // backend espera "codigo"
       });
 
       const data: CompileResult = await response.json();
+
+      if (data != null) {
+        console.log(data);
+      }
 
       setErrors(data.errors ?? []);
       setSymbols(data.symbols ?? []);
@@ -41,6 +46,7 @@ export function useCompiler() {
       setLoading(false);
     }
   };
+
 
   return { compile, loading, errors, symbols, astImage, connectionError };
 }
