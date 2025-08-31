@@ -34,8 +34,14 @@ export function useCompiler() {
       }
 
       setErrors(data.errors ?? []);
+      console.log(errors);
       setSymbols(data.symbols ?? []);
-      setAstImage(data.astImage ?? null);
+      if (data.astImage) {
+        console.log("using image");
+        setAstImage(`data:image/png;base64,${data.astImage}`);
+      } else {
+        setAstImage(null);
+      }
     } catch (err) {
       console.error("Error compilando:", err);
       setConnectionError("No se pudo conectar al compilador.");

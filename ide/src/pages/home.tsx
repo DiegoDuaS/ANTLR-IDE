@@ -25,7 +25,7 @@ const Home: React.FC = () => {
           <CodeEditor errors={errors} code={code} onChange={setCode} />
         </div>
         <div className="right-panel-container">
-          <RightPanel symbols={symbols} />
+          <RightPanel astImage={astImage} symbols={symbols} />
         </div>
       </div>
       <Console errors={errors} />
