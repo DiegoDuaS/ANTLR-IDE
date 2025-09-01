@@ -4,18 +4,21 @@ import { SemanticError } from "../helpers/types";
 
 interface ConsoleProps {
   errors: SemanticError[];
+  loading: boolean;
 }
 
-const Console: React.FC<ConsoleProps> = ({ errors }) => {
+const Console: React.FC<ConsoleProps> = ({ errors, loading }) => {
   return (
     <div className="console">
       <p>FM.D POWERSHELL</p>
       <p>
-        C:\Users\FMD <span className="cursor">{">"}</span>
+        C:\Users\FMD <span className="cursor">{">"} {loading && "compilando ..."}</span>
       </p>
 
       {errors.length === 0 ? (
         <p>No se encontraron errores 🎉</p>
+      ) : loading ? (
+        <p></p>
       ) : (
         errors.map((err, idx) => (
           <p key={idx}>

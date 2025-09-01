@@ -6,6 +6,7 @@ export type SemanticError = {
 
 export interface ASTViewProps {
   src: string; 
+  loading: boolean;
 }
 
 export type Symbol = {

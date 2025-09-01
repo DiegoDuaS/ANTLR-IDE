@@ -4,9 +4,18 @@ import { Symbol } from "../helpers/types";
 
 interface Props {
   symbols: Symbol[];
+  loading: boolean;
 }
 
-const SymbolTable: React.FC<Props> = ({ symbols }) => {
+const SymbolTable: React.FC<Props> = ({ symbols, loading }) => {
+  if (loading) {
+    return <div className="symbol-table">Cargando símbolos...</div>;
+  }
+
+  if (!symbols || symbols.length === 0) {
+    return <div className="symbol-table">No hay símbolos para mostrar.</div>;
+  }
+
   return (
     <div className="symbol-table">
       <table className="table" border={1} cellPadding={6}>

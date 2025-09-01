@@ -10,17 +10,18 @@ import { Symbol } from "../helpers/types";
 interface Props {
   symbols: Symbol[];
   astImage: string | null;
+  loading: boolean;
 }
 
-const RightPanel: React.FC<Props> = ({ astImage, symbols }) => {
+const RightPanel: React.FC<Props> = ({ astImage, symbols, loading}) => {
   
 
   return (
     <div className="right">
       <Tabs
         tabs={[
-          { label: "AST", content: <ASTView src={astImage ?? "./ast_tree.png"} /> },
-          { label: "Tabla de símbolos", content: <SymbolTable symbols={symbols} /> },
+          { label: "AST", content: <ASTView src={astImage ?? ""} loading={loading} /> },
+          { label: "Tabla de símbolos", content: <SymbolTable symbols={symbols} loading={loading} /> },
         ]}
       />
     </div>

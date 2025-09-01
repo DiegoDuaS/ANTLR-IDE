@@ -83,3 +83,7 @@ header{
   color: black;
 }
 
+.error-underline {
+  border-bottom: 2px wavy red;
+}
+

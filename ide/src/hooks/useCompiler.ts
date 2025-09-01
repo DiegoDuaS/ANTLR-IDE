@@ -17,27 +17,21 @@ export function useCompiler() {
   const [connectionError, setConnectionError] = useState<string | null>(null);
 
   const compile = async (code: string) => {
-    console.log(code);
     setLoading(true);
-    setConnectionError(null); // limpiamos errores de red
+    setConnectionError(null);
+
     try {
       const response = await fetch("http://localhost:8080/compilar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ codigo: code }), // backend espera "codigo"
+        body: JSON.stringify({ codigo: code }),
       });
 
       const data: CompileResult = await response.json();
 
-      if (data != null) {
-        console.log(data);
-      }
-
       setErrors(data.errors ?? []);
-      console.log(errors);
       setSymbols(data.symbols ?? []);
       if (data.astImage) {
-        console.log("using image");
         setAstImage(`data:image/png;base64,${data.astImage}`);
       } else {
         setAstImage(null);
@@ -45,7 +39,7 @@ export function useCompiler() {
     } catch (err) {
       console.error("Error compilando:", err);
       setConnectionError("No se pudo conectar al compilador.");
-      setErrors([]); // aquí vaciamos errores semánticos, para que no se mezclen
+      setErrors([]);
       setSymbols([]);
       setAstImage(null);
     } finally {
@@ -53,6 +47,17 @@ export function useCompiler() {
     }
   };
 
-
-  return { compile, loading, errors, symbols, astImage, connectionError };
+  // Exponemos también los setters para limpiar desde otro componente
+  return {
+    compile,
+    loading,
+    errors,
+    symbols,
+    astImage,
+    connectionError,
+    setErrors,
+    setSymbols,
+    setAstImage,
+  };
 }
+

@@ -1,11 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Editor, { OnMount } from "@monaco-editor/react";
-
-type SemanticError = {
-  mensaje: string;
-  linea: number;
-  columna: number;
-};
+import { SemanticError } from "../helpers/types";
+import "./components.css";
 
 interface CodeEditorProps {
   code: string;
@@ -16,26 +12,30 @@ interface CodeEditorProps {
 const CodeEditor: React.FC<CodeEditorProps> = ({ code, onChange, errors }) => {
   const monacoRef = useRef<any>(null);
   const editorRef = useRef<any>(null);
+  const decorationsRef = useRef<string[]>([]); // <- Guardar decoraciones previas
 
   const handleEditorMount: OnMount = (editor, monaco) => {
     editorRef.current = editor;
     monacoRef.current = monaco;
   };
 
-  // Cada vez que cambien los errores -> pintar decoraciones
   useEffect(() => {
     if (!editorRef.current || !monacoRef.current) return;
     const monaco = monacoRef.current;
 
-    const decorations = errors.map((err) => ({
-      range: new monaco.Range(err.linea, err.columna, err.linea, err.columna + 1),
+    const newDecorations = errors.map((err) => ({
+      range: new monaco.Range(err.linea, err.columna, err.linea, err.columna + 5),
       options: {
         inlineClassName: "error-highlight",
-        hoverMessage: { value: `**Error**: ${err.mensaje}` }
-      }
+        hoverMessage: { value: `**Error**: ${err.mensaje}` },
+      },
     }));
 
-    editorRef.current.deltaDecorations([], decorations);
+    // Actualiza decoraciones guardando el ID
+    decorationsRef.current = editorRef.current.deltaDecorations(
+      decorationsRef.current,
+      newDecorations
+    );
   }, [errors]);
 
   return (
@@ -51,9 +51,16 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ code, onChange, errors }) => {
           fontSize: 14,
           minimap: { enabled: false },
           scrollBeyondLastLine: false,
-          automaticLayout: true
+          automaticLayout: true,
         }}
       />
+      <style>
+        {`
+          .error-highlight {
+            background-color: rgba(255, 0, 0, 0.3);
+          }
+        `}
+      </style>
     </div>
   );
 };

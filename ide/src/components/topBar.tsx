@@ -1,13 +1,19 @@
 import React from "react";
 import { TbCircleLetterCFilled } from "react-icons/tb";
 import "./components.css"
+import { SemanticError } from "../helpers/types";
+import { Symbol as CompSymbol } from "../helpers/types";
 
 interface TopBarProps {
   onCompile: () => void;
   loading: boolean;
+  setCode: (value: string) => void;
+  setErrors: (value: SemanticError[]) => void;
+  setSymbols: (value: CompSymbol[]) => void;
+  setAstImage: (value: string | null) => void;
 }
 
-const TopBar: React.FC<TopBarProps> = ({ onCompile, loading }) => {
+const TopBar: React.FC<TopBarProps> = ({ onCompile, loading, setCode, setErrors, setSymbols, setAstImage}) => {
 
   return (
     <header>
@@ -25,7 +31,17 @@ const TopBar: React.FC<TopBarProps> = ({ onCompile, loading }) => {
         >
           {loading ? "Compilando..." : "Compilar"}
         </button>
-        <button className="section-button">Limpiar</button>
+        <button
+          className="section-button"
+          onClick={() => {
+            setCode("");
+            setErrors([]);
+            setSymbols([]);
+            setAstImage(null);
+          }}
+        >
+          Limpiar
+        </button>
       </div>
       <div className="header-section">
         <p className="names">Fabiola Contreras</p>
