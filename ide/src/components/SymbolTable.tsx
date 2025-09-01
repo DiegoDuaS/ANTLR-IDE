@@ -32,7 +32,7 @@ const SymbolTable: React.FC<Props> = ({ symbols, loading }) => {
           {symbols.map((sym, idx) => (
             <tr key={idx}>
               <td>{sym.name}</td>
-              <td>{sym.type}</td>
+              <td>{sym.type ? sym.type : "N/A"}</td>
               <td>{sym.kind}</td>
               <td>{sym.line}</td>
               <td>{sym.column}</td>

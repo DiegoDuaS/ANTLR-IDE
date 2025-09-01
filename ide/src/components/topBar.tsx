@@ -34,7 +34,6 @@ const TopBar: React.FC<TopBarProps> = ({ onCompile, loading, setCode, setErrors,
         <button
           className="section-button"
           onClick={() => {
-            setCode("");
             setErrors([]);
             setSymbols([]);
             setAstImage(null);
