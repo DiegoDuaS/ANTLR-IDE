@@ -2,6 +2,8 @@
 
 Este proyecto es un IDE web desarrollado en React con TypeScript para compilar, analizar y visualizar código personalizado. Permite al usuario escribir código, detectar errores semánticos, ver la Tabla de Símbolos y explorar el AST generado con funcionalidades de zoom y paneo.
 
+<img width="1867" height="946" alt="image" src="https://github.com/user-attachments/assets/31d40c79-8f6d-4e53-aaf6-a06d4bd47e34" />
+
 ## Características principales
 
 - Editor de código
