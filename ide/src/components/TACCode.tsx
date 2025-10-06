@@ -20,7 +20,7 @@ const TACCode: React.FC<Props> = ({ TAC, loading }) => {
       <h3>Three Address Code (TAC)</h3>
       <div className="tac-list">
         {TAC.map((instr, index) => (
-          <div key={index}>
+            <div key={index} style={{ textAlign: 'justify', paddingLeft: '80px', paddingRight:'50px'}}>
             <span>{index}: </span>
             <span>{instr}</span>
           </div>
