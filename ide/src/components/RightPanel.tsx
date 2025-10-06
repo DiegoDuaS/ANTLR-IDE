@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ASTView from "./ASTView"; // el componente de imagen con zoom
 import SymbolTable from "./SymbolTable";
 import Tabs from "./Tabs";
