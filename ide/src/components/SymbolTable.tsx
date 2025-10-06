@@ -26,6 +26,8 @@ const SymbolTable: React.FC<Props> = ({ symbols, loading }) => {
             <th>Clase</th>
             <th>Línea</th>
             <th>Columna</th>
+            <th>Offset</th>
+            <th>Size</th>
           </tr>
         </thead>
         <tbody>
@@ -36,6 +38,8 @@ const SymbolTable: React.FC<Props> = ({ symbols, loading }) => {
               <td>{sym.kind}</td>
               <td>{sym.line}</td>
               <td>{sym.column}</td>
+              <td>{sym.offset ? sym.type : "N/A"}</td>
+              <td>{sym.size ? sym.type : "N/A"}</td>
             </tr>
           ))}
         </tbody>

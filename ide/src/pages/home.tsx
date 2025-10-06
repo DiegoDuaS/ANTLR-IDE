@@ -17,6 +17,7 @@ const Home: React.FC = () => {
     errors,
     symbols,
     astImage,
+    TAC,
     connectionError,
     setErrors,
     setSymbols,
@@ -39,7 +40,7 @@ const Home: React.FC = () => {
           <CodeEditor errors={errors} code={code} onChange={setCode} />
         </div>
         <div className="right-panel-container">
-          <RightPanel astImage={astImage} symbols={symbols} loading={loading} />
+          <RightPanel astImage={astImage} symbols={symbols} loading={loading} TAC = {TAC}/>
         </div>
       </div>
 

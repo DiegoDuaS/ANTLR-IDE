@@ -7,6 +7,7 @@ type CompileResult = {
   errors: SemanticError[];
   symbols: Symbol[];
   astImage?: string;
+  tac: string[];
 };
 
 export function useCompiler() {
@@ -14,6 +15,7 @@ export function useCompiler() {
   const [errors, setErrors] = useState<SemanticError[]>([]);
   const [symbols, setSymbols] = useState<Symbol[]>([]);
   const [astImage, setAstImage] = useState<string | null>(null);
+  const [TAC, setTAC] = useState<string[]>([]);
   const [connectionError, setConnectionError] = useState<string | null>(null);
 
   const compile = async (code: string) => {
@@ -31,6 +33,7 @@ export function useCompiler() {
 
       setErrors(data.errors ?? []);
       setSymbols(data.symbols ?? []);
+      setTAC(data.tac ?? []);
       if (data.astImage) {
         setAstImage(`data:image/png;base64,${data.astImage}`);
       } else {
@@ -54,6 +57,7 @@ export function useCompiler() {
     errors,
     symbols,
     astImage,
+    TAC,
     connectionError,
     setErrors,
     setSymbols,
