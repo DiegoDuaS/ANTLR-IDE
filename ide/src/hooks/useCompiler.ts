@@ -23,7 +23,7 @@ export function useCompiler() {
     setConnectionError(null);
 
     try {
-      const response = await fetch("http://localhost:8080/compilar-tac", {
+      const response = await fetch("http://localhost:8080/compilar-mips", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ codigo: code }),

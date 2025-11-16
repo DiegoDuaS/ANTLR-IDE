@@ -14,9 +14,9 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
 
   return (
     <div style={{height: "70vh"}}>
-      <div style={{height: "8vh"}}>
+      <div style={{height: "8vh", display: "flex"}}>
         {tabs.map((tab, i) => (
-          <button className="section-button" style={{width: "10vw"}} key={i} onClick={() => setActive(i)}>
+          <button className="section-button" style={{flex: 1}} key={i} onClick={() => setActive(i)}>
             {tab.label}
           </button>
         ))}
