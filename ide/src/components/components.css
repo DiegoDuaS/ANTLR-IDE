@@ -103,6 +103,13 @@ header{
   color: black;
 }
 
+.tac-list{
+    text-align: justify;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+}
+
 .error-underline {
   border-bottom: 2px wavy red;
 }
